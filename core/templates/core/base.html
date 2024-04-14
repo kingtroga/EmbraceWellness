@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>{% block title %}{% endblock %} | Embrace Wellness</title>
+    <script src="{% static 'js/tailwind.js' %}"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'mustard': '#ffc107',
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-black font-sans text-white">
+    <nav class="xl:fixed xl:w-full xl:flex xl:justify-center xl:space-x-72 p-5 bg-black text-white shadow">
+      <div class="flex items-center justify-between cursor-pointer uppercase text-2xl ">
+        <span class="font-extrabold hover:text-mustard">
+          embracewellness
+        </span>
+        <span class="xl:hidden block hover:text-mustard text-3xl">
+          <i name="menu" onclick="Menu(this)" class="fa-solid fa-bars"></i>
+        </span>
+      </div>
+      <ul class="xl:flex xl:static z-[1] xl:z-auto absolute w-full xl:w-auto left-0 xl:pl-0 pl-1 xl:py-0 py-1 xl:opacity-100 opacity-0 transition-all top-[-400px] ease-in duration-500  bg-black text-white">
+        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">home</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">contact</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">about</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">blog</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">sign up</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">login in</a></li>
+      </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <footer class="xl:mx-52 flex flex-col items-start xl:flex-row  xl:justify-center xl:space-x-2 ">
+    
+      <div class="py-10 px-6 text-left flex flex-col space-y-10 xl:w-1/4 w-auto" >
+          <h3 class="text-2xl  text-[#f8f9fa] font-bold">About</h3>
+          <p class="text-gray-300 text-lg">We provide interactive resources, supportive community, counseling services, educational workshops, emergency resources, awareness campaigns, personal journals, and volunteer opportunities to aid students in promoting mental health and addressing gender-based violence.</p>
+          <div class="text-2xl flex flex-row space-x-2">
+            <span>
+              <i class="fa-brands cursor-pointer hover:bg-mustard fa-twitter py-3 px-3 rounded-full text-gray-300 bg-[#343a40]"></i>
+            </span>
+            <span>
+              <i class="fa-brands  cursor-pointer hover:bg-mustard  fa-facebook-f py-3 px-4 rounded-full text-gray-300  bg-[#343a40]"></i>
+            </span>
+            <span> 
+              <i class="fa-brands  cursor-pointer  hover:bg-mustard fa-instagram py-3 px-3 rounded-full text-gray-300  bg-[#343a40]"></i>
+            </span>
+          </div>
+      </div>
+      <div class="py-10 px-6 text-left flex flex-col space-y-10 xl:w-1/4 w-auto" >
+          <h3 class="text-2xl font-bold text-[#f8f9fa]">Links</h3>
+          <ul class=" flex flex-col space-y-3 text-lg">
+            <span class="text-gray-300">
+              <i class=" text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Home
+            </span>
+            <span class="text-gray-300">
+              <i class="text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              About 
+            </span>
+            <span class="text-gray-300">
+              <i class=" text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Services
+            </span>
+            <span class="text-gray-300">
+              <i class=" text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Forum
+            </span>
+            <span class="text-gray-300">
+              <i class="text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Contact
+            </span>
+          </ul>
+      </div>
+      <div class="py-10 px-6 text-left flex flex-col space-y-10 xl:w-1/4 w-auto" >
+          <h3 class="text-2xl font-bold text-[#f8f9fa]">Services</h3>
+          <ul class=" flex flex-col space-y-3 text-lg">
+            <span class="text-gray-300">
+              <i class="text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Interactive Resources
+            </span>
+            <span class="text-gray-300">
+              <i class="text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Supportive Community
+            </span>
+            <span class="text-gray-300">
+              <i class=" text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Counseling Services
+            </span>
+            <span class="text-gray-300">
+              <i class=" text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Awareness Campaigns
+            </span>
+            <span class="text-gray-300">
+              <i class="text-gray-300 text-lg fa-solid fa-arrow-right"></i>
+              Blog
+            </span>
+          </ul>
+      </div>
+      <div class="py-10 px-6 text-left flex flex-col space-y-10 xl:w-1/4 w-auto" >
+        <h3 class="text-2xl font-bold text-[#f8f9fa]">Have a Question?</h3>
+        <div>
+          <div class="flex space-x-2 mb-3">
+            <span>
+              <i class="fa-solid fa-location-dot text-lg text-gray-300"></i>
+            </span>
+            <p>	KM 12, Lagos/Ibadan Expressway, MFM Prayer City, Ogun State, Nigeria.</p>
+          </div>
+          <div class="flex space-x-2 mb-3">
+            <span>
+              <i class="fa-solid fa-phone text-lg text-gray-300"></i>
+            </span>
+            <p>+2348156123857</p>
+          </div>
+          <div class="flex space-x-2">
+            <span>
+              <i class="fa-solid fa-envelope text-lg text-gray-300"></i>
+            </span>
+            <p>embracewellness@mtu.edu.ng</p>
+          </div>
+        </div>
+        
+        
+    </div>
+
+    </footer>
+    <div class="text-[#6c757d] text-center text-lg m-6 text-wrap">
+      <span>
+        Copyright &copy; 2024. Built with hope by <a href="https://twitter.com/MyhnTari" class="cursor-pointer text-mustard  no-underline hover:underline hover:underline-offset-2">Atary</a>
+      </span>
+    </div>
+    <script>
+      function Menu(e) {
+        let list = document.querySelector('ul');
+        e.name === 'menu' ? (e.name = "close",e.classList.remove('fa-bars'),e.classList.add('fa-xmark'), list.classList.add('top-[70px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'),e.classList.remove('fa-xmark'),e.classList.add('fa-bars'), list.classList.remove('opacity-100'))
+      }
+    </script>
+    <script src="https://kit.fontawesome.com/4a0b7f4f49.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
