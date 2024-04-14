@@ -1,7 +1,53 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %} Welcome {% endblock %}
 
 {% block content %}
-    <p class="text-3xl p-20 text-center">The front page</p>
+    <div class="text-white flex flex-col  transition-all ease-in duration-500 lg:flex-row mx-auto justify-center lg:text-left  mx-auto items-center -space-y-[10rem]">
+        <div style="text-shadow: 2px 2px #000;" class="flex flex-col lg:text-left items-start space-y-10 lg:-mb-0 lg:py-0 sm:py-[10rem] py-[10rem] -mb-[30rem] sm:-mb-[40rem] lg:-mb-0-mr-[10rem]  lg:-mr-[15rem] lg:-mr-[10rem]">
+            <p class="uppercase text-mustard font-semibold text-sm tracking-widest">hello!</p>
+            <h1 class="sm:text-6xl  text-4xl font-extrabold">
+                Welcome to <br>
+                <span class="text-mustard">EmbraceWellness</span>
+            </h1>
+            <p class="sm:text-3xl text-2xl">It's okay.</p>
+            <div>
+                <button class="uppercase font-semibold text-sm px-6 py-4 bg-mustard text-black rounded-3xl">
+                    talk to us
+                </button>
+                <button class="uppercase font-semibold text-sm px-6 py-4 bg-black text-white rounded-3xl border border-white">
+                    vent
+                </button>
+            </div>
+        </div>
+        <div class="z-[-1]">
+            <img src="{% static 'images/bg_1.png' %}" class=" h-[38rem] sm:h-[45rem] lg:h-[50rem] md:h-[60rem] xl:h-[65rem] w-auto" alt="a warm embrace">
+        </div>
+    </div>
+    <div class="m-10">
+        <div class="flex flex-row justify-center items-center">
+            <div class="lg:block hidden">
+                <img src="{% static 'images/bg_2.png' %}" class="h-auto w-[120rem]" alt="">
+            </div>
+            <div>
+                <h1 class="sm:text-5xl text-4xl font-bold">About Us</h1>
+                <p class=" sm:text-9xl  text-7xl text-[#343a40]  font-extrabold -mt-[2rem] -ml-[2rem]">About</p>
+                <p class="text-lg -mt-[2rem] mb-6">We provide interactive resources, supportive community, counseling services, educational workshops, emergency resources, awareness campaigns, personal journals, and volunteer opportunities to aid students in promoting mental health and addressing gender-based violence.</p>
+                <p class="text-2xl">
+                    <span class="text-mustard font-semibold">
+                        5
+                    </span> Professional Counsellors Available
+                </p>
+                <button class="uppercase font-semibold text-sm px-6 py-4 bg-mustard text-black rounded-3xl my-6">
+                    talk to us
+                </button>
+                
+            </div>
+        </div>
+        
+
+    </div>
+
+    
 {% endblock %}
