@@ -34,9 +34,9 @@
                 <img src="{% static 'images/bg_2.png' %}" class="h-auto w-[120rem]" alt="">
             </div>
             <div class="flex flex-col items-center lg:items-start">
-                <h2 class="sm:text-5xl text-4xl font-bold">About Us</h2>
-                <p class=" sm:text-9xl  text-7xl text-[#343a40]  font-extrabold -mt-[2rem] -ml-[2rem]">About</p>
-                <p class="text-lg -mt-[2rem] mb-6">We provide interactive resources, supportive community, counseling services, educational workshops, emergency resources, awareness campaigns, personal journals, and volunteer opportunities to aid students in promoting mental health and addressing gender-based violence.</p>
+                <h2 class="sm:text-5xl text-4xl font-bold z-[2]">About Us</h2>
+                <p class=" sm:text-9xl  text-7xl text-[#343a40] z-[1]  font-extrabold -mt-[2rem] -ml-[2rem]">About</p>
+                <p class="text-lg -mt-[2rem] mb-6 z-[3]">We provide interactive resources, supportive community, counseling services, educational workshops, emergency resources, awareness campaigns, personal journals, and volunteer opportunities to aid students in promoting mental health and addressing gender-based violence.</p>
                 <p class="text-2xl">
                     <span class="text-mustard font-semibold">
                         5
@@ -177,11 +177,31 @@
                     <p class="text-white text-[1rem]"  >I'm an anonymous seeker who's been silently battling the scars of gender-based violence. I've never shared my story before, and I'm still struggling with its impact on my mental health. Can anyone offer advice or personal stories on how to cope with the aftermath of such traumatic experiences? Your words of wisdom could be a lifeline for me and others who choose to remain silent. Thank you for your understanding.</p>
                 </a>
             </div>
-
-
-
-
         </div>
+    </div>
+
+    <!-- CONTACT FIRST LANDING -->
+    <div class="flex flex-col justify-center items-center my-10  sm:mx-[15rem]">
+        <h2 class="sm:text-5xl text-4xl font-bold z-[3]">Contact us</h2>
+        <p class=" sm:text-9xl  text-7xl text-[#343a40]  font-extrabold sm:-mt-[3.5rem] z-[1]  -mt-[2rem]">Contact</p>
+        <p class="text-lg sm:-mt-[2rem]   -mt-[1rem] text-center z-[2]">You can contact us via any of the following details below or directly with the form on the website</p>
+    </div>
+
+    <!-- About -->
+    <div class="m-10">
+        <div class="flex justify-center items-centerr">
+            <div class="xl:block hidden">
+                <img src="{% static 'images/bg_2.png' %}" class="h-auto w-[120rem]" alt="">
+            </div>
+            <div class=" bg-white flex flex-col bg-white px-[4rem] py-10  space-y-2 items-start">
+                <input type="text" class="text-black border border-gray-400 sm:w-[15rem]  sm:w-[20rem] md:w-[28rem] px-2 placeholder:text-gray-400 py-4 rounded-xl text-left" placeholder="Your Name">
+                <input type="text" class="text-black border border-gray-400  sm:w-[15rem] sm:w-[20rem] md:w-[28rem] px-2 placeholder:text-gray-400 py-4 rounded-xl text-left" placeholder="Your Email">
+                <input type="text" class="text-black border border-gray-400  sm:w-[15rem] sm:w-[20rem] md:w-[28rem] px-2 placeholder:text-gray-400 py-4 rounded-xl text-left" placeholder="Your Subject">
+                <input type="text" class="text-black border border-gray-400  sm:w-[15rem] sm:w-[20rem] md:w-[28rem] h-[10rem] placeholder:text-gray-400 py-4 placeholder:absolute placeholder:top-2 placeholder:left-2 rounded-xl text-left" placeholder="Your Message">
+                <button class="uppercase font-semibold flex justify-center   text-sm px-12 py-5 bg-mustard text-black rounded-full ">
+                    send message
+                </button>
+            </div>
     </div>
         
     
