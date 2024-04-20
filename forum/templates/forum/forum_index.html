@@ -1,0 +1,41 @@
+{% extends 'core/index.html' %}
+
+{% block title %}Forum{% endblock %}
+
+
+{% block content %}
+<div class="pt-[2.5rem] ">
+    <div class="flex flex-col justify-center items-center my-10  sm:mx-[15rem]">
+        <h2 class="sm:text-5xl text-4xl font-bold z-[2]">Forum</h2>
+        <p class=" sm:text-[5rem]  text-[3rem] text-[#343a40]  z-[1] font-extrabold sm:-mt-[4rem]  -mt-[2.5rem]">Forum</p>
+    </div>
+    <div>
+        <form action="{% url 'forum:index' %}"  class="flex justify-center space-x-2">
+
+            <input name="query" class="bg-black w-2/3 py-4 px-6 border border-white rounded-xl" type="text" value="{{ query }}" placeholder="Search for a forum post by title or content">
+            <button class="block text-mustard text-3xl py-2 inline">
+                <span>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+            </button>
+          
+            
+        </form>
+    </div>
+    <div class="lg:flex lg:justify-center lg:items-center ">
+        <div class="xl:grid-cols-3 lg:mx-auto lg:my-[2rem] lg:grid-cols-2 lg:grid  flex flex-col justify-center items-center  lg:gap-1">
+            {% for forum in forums %}
+            <!-- FORUM ELEMENT -->
+            <div class="bg-[#343a40] p-4 lg:p-10 w-[21rem] sm:w-[22rem] md:w-[25rem] lg:w-[25rem] m-10 rounded-sm ">
+                <a href="#" class="h-auto flex flex-col space-y-2 justify-content items-start">
+                    <p class="text-mustard lg:text-3xl text-2xl font-extrabold">{{ forum.created_at }}</p>
+                    <h3 class="text-white lg:text-3xl text-2xl">{{ forum.title }}</h3>
+                    <p class="uppercase text-lg text-white">{{ forum.created_by }}</p>
+                    <p class="text-white text-lg"  >{{ forum.content }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

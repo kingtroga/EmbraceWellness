@@ -1,9 +1,17 @@
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
 from django.contrib.auth import logout
+from forum.models import Forum
+
+
 
 def index(request):
-    return render(request, "core\index.html")
+    forums = Forum.objects.all()[0:3]
+    print(forums)
+
+    return render(request, "core\index.html", {
+        "forums": forums
+    })
 
 def signup(request):
     if request.method == "POST":

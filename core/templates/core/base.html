@@ -23,7 +23,7 @@
     <nav class="fixed w-full z-[4] xl:flex xl:justify-center xl:space-x-72 p-5 bg-black  text-white shadow">
       <div class="flex items-center justify-between cursor-pointer uppercase text-2xl ">
         <span class="font-extrabold hover:text-mustard">
-          embracewellness
+          <a href="{% url 'core:index' %}">embracewellness</a>
         </span>
         <span class="xl:hidden block hover:text-mustard text-3xl">
           <i name="menu" onclick="Menu(this)" class="fa-solid fa-bars"></i>
@@ -32,14 +32,36 @@
       <ul class="xl:flex xl:static z-[1] xl:z-auto absolute w-full xl:w-auto left-0 xl:pl-0 pl-1 xl:py-0 py-1 xl:opacity-100 opacity-0 transition-all top-[-400px] ease-in duration-500  bg-black text-white">
         <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">home</a></li>
         <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">contact</a></li>
-        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">about</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="/#About" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">about</a></li>
         <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">blog</a></li>
-        <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">forum</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="{% url 'forum:index' %}" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">forum</a></li>
         {% if user.is_authenticated %}
-          <li class="mx-4 xl:my-0 my-4"><a href="{% url 'core:logout' %}" class="text-lg font-semibold px-6 py-3 bg-mustard text-black rounded-3xl   hover:text-white hover:bg-gray-200 capitalize">log out</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="{% url 'core:logout' %}" class="text-lg font-semibold xl:px-6 xl:py-3 transition-all ease-in duration-500 hover:underline-offset-8 hover:underline hover:text-mustard hover:underline xl:hover:no-underline xl:bg-black xl:text-white xl:rounded-3xl xl:border xl:border-white   xl:hover:bg-mustard  xl:hover:text-white capitalize">log out</a></li>
+        <li class="mx-4 xl:my-0 my-4">
+          <button id="dropdownDefaultButton" onclick="Dropdown(this)"  data-dropdown-toggle="dropdown" type="button">
+            <span class="text-lg font-semibold xl:px-6 xl:py-3  transition-all ease-in duration-500 hover:underline-offset-8 hover:underline hover:text-mustard  hover:underline xl:hover:bg-mustard xl:hover:no-underline text-white    xl:bg-mustard xl:text-black xl:rounded-3xl  xl:hover:text-white capitalize">
+              Create 
+              <svg class="w-2.5 h-2.5 inline " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+            </span>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div id="dropdown" class="z-[-1] absolute top-[300px] hidden xl:top-[50px] bg-[#343a40] text-white divide-y divide-gray-100 rounded-lg shadow w-44">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-mustard">New Forum post</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-mustard">New Blog post</a>
+              </li>
+            </ul>
+          </div>
+        </li>
         {% else %}
-          <li class="mx-4 xl:my-0 my-4"><a href="{% url 'core:signup' %}" class="text-lg font-semibold xl:px-6 xl:py-3 transition-all ease-in duration-500 hover:underline-offset-8 hover:underline hover:bg-mustard hover:underline xl:hover:no-underline bg-black xl:text-white xl:rounded-3xl xl:border xl:border-white   xl:hover:bg-mustard  hover:text-white capitalize">sign up</a></li>
-          <li class="mx-4 xl:my-0 my-4"><a href="{% url 'core:login' %}" class="text-lg font-semibold xl:px-6 xl:py-3  transition-all ease-in duration-500 hover:underline-offset-8 hover:underline hover:bg-mustard  hover:underline xl:hover:no-underline text-white    xl:bg-mustard xl:text-black xl:rounded-3xl  xl:hover:text-white hover:bg-gray-200 capitalize">log in</a></li>
+          <li class="mx-4 xl:my-0 my-4"><a href="{% url 'core:signup' %}" class="text-lg font-semibold xl:px-6 xl:py-3 transition-all ease-in duration-500 hover:underline-offset-8 hover:underline hover:text-mustard xl:hover:bg-mustard hover:underline xl:hover:no-underline xl:bg-black text-white xl:rounded-3xl xl:border xl:border-white   xl:hover:bg-mustard  xl:hover:text-white capitalize">sign up</a></li>
+          <li class="mx-4 xl:my-0 my-4"><a href="{% url 'core:login' %}" class="text-lg font-semibold xl:px-6 xl:py-3  transition-all ease-in duration-500 hover:underline-offset-8 hover:underline hover:text-mustard xl:hover:bg-mustard  hover:underline xl:hover:no-underline text-white    xl:bg-mustard xl:text-black xl:rounded-3xl  xl:hover:text-white xl:hover:bg-gray-200 capitalize">log in</a></li>
         {% endif %}
       </ul>
     </nav>
@@ -147,7 +169,23 @@
     <script>
       function Menu(e) {
         let list = document.querySelector('ul');
+        
         e.name === 'menu' ? (e.name = "close",e.classList.remove('fa-bars'),e.classList.add('fa-xmark'), list.classList.add('top-[70px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'),e.classList.remove('fa-xmark'),e.classList.add('fa-bars'), list.classList.remove('opacity-100'))
+        var dropdown = document.getElementById("dropdown");
+        dropdown.classList.remove("block");
+        dropdown.classList.add("hidden");
+      }
+      function Dropdown(e) {
+        var dropdown = document.getElementById("dropdown");
+        if (dropdown.classList.contains("hidden")) {
+            // If dropdown is currently hidden, remove "hidden" and add "block"
+            dropdown.classList.remove("hidden");
+            dropdown.classList.add("block");
+        } else {
+            // If dropdown is currently shown, remove "block" and add "hidden"
+            dropdown.classList.remove("block");
+            dropdown.classList.add("hidden");
+        }
       }
     </script>
     <script src="https://kit.fontawesome.com/4a0b7f4f49.js" crossorigin="anonymous"></script>

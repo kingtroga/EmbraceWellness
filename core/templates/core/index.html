@@ -28,7 +28,7 @@
     </div>
 
     <!-- About -->
-    <div class="m-10">
+    <div id="About" class="m-10">
         <div class="flex flex-row justify-center items-center">
             <div class="lg:block hidden">
                 <img src="{% static 'images/bg_2.png' %}" class="h-auto w-[120rem]" alt="">
@@ -58,44 +58,17 @@
     <!-- Forum second landing  -->
     <div class="lg:flex lg:justify-center lg:items-center ">
         <div class="xl:grid-cols-3 lg:mx-auto lg:my-[2rem] lg:grid-cols-2 lg:grid  flex flex-col justify-center items-center  lg:gap-1">
-
+            {% for forum in forums %}
             <!-- FORUM ELEMENT -->
             <div class="bg-[#343a40] p-4 lg:p-10 w-[21rem] sm:w-[22rem] md:w-[25rem] lg:w-[25rem] m-10 rounded-sm ">
                 <a href="#" class="h-auto flex flex-col space-y-2 justify-content items-start">
-                    <p class="text-mustard lg:text-3xl text-2xl font-extrabold">23rd October, 2023</p>
-                    <h3 class="text-white lg:text-3xl text-2xl">Coping with Gender-Based Violence Trauma and Mental Health</h3>
-                    <p class="uppercase text-lg text-white">anonymous</p>
-                    <p class="text-white text-lg"  >I'm an anonymous seeker who's been silently battling the scars of gender-based violence. I've never shared my story before, and I'm still struggling with its impact on my mental health. Can anyone offer advice or personal stories on how to cope with the aftermath of such traumatic experiences? Your words of wisdom could be a lifeline for me and others who choose to remain silent. Thank you for your understanding.</p>
+                    <p class="text-mustard lg:text-3xl text-2xl font-extrabold">{{ forum.created_at }}</p>
+                    <h3 class="text-white lg:text-3xl text-2xl">{{ forum.title }}</h3>
+                    <p class="uppercase text-lg text-white">{{ forum.created_by }}</p>
+                    <p class="text-white text-lg"  >{{ forum.content }}</p>
                 </a>
             </div>
-    
-            <div class="bg-[#343a40]  p-4 w-[21rem] sm:w-[22rem] md:w-[25rem] lg:p-10 lg:w-[25rem] m-10 rounded-sm ">
-                <a href="#" class="h-auto flex flex-col space-y-2 justify-content items-start">
-                    <p class="text-mustard lg:text-3xl text-2xl font-extrabold">23rd October, 2023</p>
-                    <h3 class="text-white lg:text-3xl text-2xl">Coping with Gender-Based Violence Trauma and Mental Health</h3>
-                    <p class="uppercase text-lg text-white">anonymous</p>
-                    <p class="text-white text-lg"  >I'm an anonymous seeker who's been silently battling the scars of gender-based violence. I've never shared my story before, and I'm still struggling with its impact on my mental health. Can anyone offer advice or personal stories on how to cope with the aftermath of such traumatic experiences? Your words of wisdom could be a lifeline for me and others who choose to remain silent. Thank you for your understanding.</p>
-                </a>
-            </div>
-    
-    
-            <div class="bg-[#343a40]  p-4 w-[21rem] sm:w-[22rem] md:w-[25rem] lg:p-10 lg:w-[25rem] m-6 rounded-sm ">
-                <a href="#" class="h-auto flex flex-col space-y-2 justify-content items-start">
-                    <p class="text-mustard lg:text-3xl text-2xl font-extrabold">23rd October, 2023</p>
-                    <h3 class="text-white lg:text-3xl text-2xl">Coping with Gender-Based Violence Trauma and Mental Health</h3>
-                    <p class="uppercase text-lg text-white">anonymous</p>
-                    <p class="text-white text-lg"  >I'm an anonymous seeker who's been silently battling the scars of gender-based violence. I've never shared my story before, and I'm still struggling with its impact on my mental health. Can anyone offer advice or personal stories on how to cope with the aftermath of such traumatic experiences? Your words of wisdom could be a lifeline for me and others who choose to remain silent. Thank you for your understanding.</p>
-                </a>
-            </div>
-    
-            <div class="bg-[#343a40]  p-4 w-[21rem] sm:w-[22rem] md:w-[25rem] lg:p-10 lg:w-[25rem]  m-10 rounded-sm ">
-                <a href="#" class="h-auto flex flex-col space-y-2 justify-content items-start">
-                    <p class="text-mustard lg:text-3xl text-2xl font-extrabold">23rd October, 2023</p>
-                    <h3 class="text-white lg:text-3xl text-2xl">Coping with Gender-Based Violence Trauma and Mental Health</h3>
-                    <p class="uppercase text-lg text-white">anonymous</p>
-                    <p class="text-white text-lg"  >I'm an anonymous seeker who's been silently battling the scars of gender-based violence. I've never shared my story before, and I'm still struggling with its impact on my mental health. Can anyone offer advice or personal stories on how to cope with the aftermath of such traumatic experiences? Your words of wisdom could be a lifeline for me and others who choose to remain silent. Thank you for your understanding.</p>
-                </a>
-            </div>
+            {% endfor %}
         </div>
     </div>
     
