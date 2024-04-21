@@ -5,4 +5,5 @@ app_name = 'forum'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('new/', views.new, name='new'),
 ]

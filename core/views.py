@@ -7,7 +7,10 @@ from forum.models import Forum
 
 def index(request):
     forums = Forum.objects.all()[0:3]
-    print(forums)
+    
+    # clean up forum
+    for forum in forums:
+        forum.content = forum.content[0:500] + "..."
 
     return render(request, "core\index.html", {
         "forums": forums
