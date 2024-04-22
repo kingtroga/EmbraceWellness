@@ -2,18 +2,21 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm
 from django.contrib.auth import logout
 from forum.models import Forum
+from blog.models import Blog
 
 
 
 def index(request):
     forums = Forum.objects.all()[0:3]
+    blogs = Blog.objects.all()[0:3]
     
     # clean up forum
     for forum in forums:
         forum.content = forum.content[0:500] + "..."
 
     return render(request, "core\index.html", {
-        "forums": forums
+        "forums": forums,
+        "blogs": blogs,
     })
 
 def signup(request):

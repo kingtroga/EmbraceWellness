@@ -21,7 +21,7 @@
         <p class="text-lg">{{ forum.content }}</p>
     </div>
 
-    <div class="w-4/5 h-[17rem] flex xl:flex-row flex-col">
+    <div class="w-4/5 {% if user.is_authenticated %} h-auto {% else %} h-auto {% endif %} flex xl:flex-row flex-col">
         <div class="xl:w-1/2 w-full overflow-auto">
             <h2 class="sm:text-2xl text-xl font-bold z-[2] text-white">Comments</h2>
             {% if comments %}
@@ -42,30 +42,36 @@
 
         <div class="bg-black xl:w-1/2  w-full text-black flex flex-col items-start">
             <h2 class="sm:text-2xl text-xl font-bold z-[2] text-white">Leave a comment</h2>
-            <div class="cols-span-3 w-full flex flex-col justify-center items-start  h-auto text-white rounded-xl">
-        
-                <form action="." method="post" class="flex flex-col justify-center items-start w-full">
-        
-                    {% csrf_token %}
-        
-                    <div class="mb-3 w-full">
-                        {{ form.comment }}
-                    </div>
+            {% if user.is_authenticated %}
+                <div class="cols-span-3 w-full flex flex-col justify-center items-start  h-auto text-white rounded-xl">
             
-                    
+                    <form action="." method="post" class="flex flex-col justify-center items-start w-full">
             
-                    {% if form.errors or form.non_field_errors %}
-                        <div class="self-center mb-3 p-6 bg-red-100 rounded-xl text-black">
-                            {% for field in form %}
-                                {{ field.errors }}
-                            {% endfor %}
+                        {% csrf_token %}
+            
+                        <div class="mb-3 w-full">
+                            {{ form.comment }}
                         </div>
-                    {% endif %}
-        
-                    <button class="self-center text-lg font-semibold  px-6 py-3 bg-black text-black rounded-3xl  bg-mustard   hover:bg-white  hover:text-white capitalize">comment</button>
-        
-                </form>
-            </div>
+                
+                        
+                
+                        {% if form.errors or form.non_field_errors %}
+                            <div class="self-center mb-3 p-6 bg-red-100 rounded-xl text-black">
+                                {% for field in form %}
+                                    {{ field.errors }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+            
+                        <button class="self-center text-lg font-semibold  px-6 py-3 bg-black text-black rounded-3xl  bg-mustard   hover:bg-white  hover:text-white capitalize">comment</button>
+            
+                    </form>
+                </div>
+            {% else %}
+                <div class="text-mustard text-sm my-4 font-semibold flex w-full flex-row justify-center items-center">
+                    <p>Login to leave a comment</p>
+                </div>
+            {% endif %}
 
         </div>
     </div>
