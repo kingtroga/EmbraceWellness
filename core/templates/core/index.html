@@ -17,9 +17,12 @@
                 <button class="uppercase font-semibold text-sm px-6 py-4 bg-mustard text-black rounded-3xl">
                     talk to us
                 </button>
-                <button class="uppercase font-semibold text-sm px-6 py-4 bg-black text-white rounded-3xl border border-white">
-                    vent
-                </button>
+                <a href="{% url 'forum:new' %}">
+                    <button class="uppercase font-semibold text-sm px-6 py-4 bg-black text-white rounded-3xl border border-white">
+                        vent
+                    </button>
+                </a>
+                
             </div>
         </div>
         <div class="z-[-1]">
@@ -74,9 +77,11 @@
     
     <!-- VENT BUTTON -->
     <div class="flex justify-center items-center">
-        <button class="uppercase font-semibold -ml-2 text-sm px-12 py-5 bg-mustard text-black rounded-full ">
-            vent
-        </button>
+        <a href="{% url 'forum:new' %}">
+            <button class="uppercase font-semibold -ml-2 text-sm px-12 py-5 bg-mustard text-black rounded-full ">
+                vent
+            </button>
+        </a>
     </div>
 
     <!-- Blog First landing  -->

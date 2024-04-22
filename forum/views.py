@@ -36,7 +36,7 @@ def new(request):
             new_forum = form.save(commit=False)
             new_forum.created_by = request.user
             new_forum.save()
-            return redirect("forum:index") #TODO: Redirect to the forum post detail
+            return redirect(f"/forum/detail/{new_forum.id}") #TODO: Redirect to the forum post detail
     else:
         form = ForumForm()
     return render(request, 'forum/forum_new.html',{

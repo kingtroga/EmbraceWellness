@@ -6,8 +6,8 @@
 {% block content %}
 <div class="pt-[2.5rem] ">
     <div class="flex flex-col justify-center items-center my-10  sm:mx-[15rem]">
-        <h2 class="sm:text-5xl text-4xl font-bold z-[2]">New Forum Post</h2>
-        <p class=" sm:text-[5rem]  text-[3rem] text-[#343a40]  z-[1] font-extrabold sm:-mt-[4rem]  -mt-[2.5rem]">New Forum</p>
+        <h2 class="sm:text-5xl text-4xl font-bold z-[2]">Vent</h2>
+        <p class=" sm:text-[5rem]  text-[3rem] text-[#343a40]  z-[1] font-extrabold sm:-mt-[4rem]  -mt-[2.5rem]">Vent</p>
     </div>
 <div>
 <div class="flex flex-row justify-center ">
@@ -18,12 +18,12 @@
             {% csrf_token %}
 
             <div class="mb-3">
-                <label class="inline-block mb-2 font-semibold text-white">Title:</label><br>
+                <label class="inline-block mb-2 font-semibold text-white">What is the topic you want to vent about:</label><br>
                 {{ form.title }}
             </div>
     
             <div class="mb-3">
-                <label class="inline-block mb-2 text-white">Content:</label><br>
+                <label class="inline-block mb-2 text-white">Tell us about it:</label><br>
                 {{ form.content }}
             </div>
     
@@ -35,7 +35,7 @@
                 </div>
             {% endif %}
 
-            <button class="self-center text-lg font-semibold m-[1rem] px-6 py-3 bg-black text-black rounded-3xl  bg-mustard   hover:bg-white  hover:text-white capitalize">Post</button>
+            <button class="self-center text-lg font-semibold m-[1rem] px-6 py-3 bg-black text-black rounded-3xl  bg-mustard   hover:bg-white  hover:text-white capitalize">Vent</button>
 
         </form>
     </div>
