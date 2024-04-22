@@ -3,7 +3,7 @@ from django.db.models import Q
 from . import models
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-from .forms import ForumForm
+from .forms import ForumForm, CommentForm
 
 def index(request):
     query = request.GET.get('query', '')
@@ -46,9 +46,25 @@ def new(request):
 
 def detail(request, pk):
     forum = get_object_or_404(models.Forum, pk=pk)
-    
+    comments = forum.comments.all()
+    form = CommentForm()
+    more_forums = models.Forum.objects.all().exclude(pk=pk)[0:3]
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.author = request.user
+            new_comment.forum = forum
+            new_comment.save()
+            return redirect(f"/forum/detail/{pk}")
+    else:
+        form = CommentForm()
+
     return render(request, 'forum/detail.html', {
-        "forum": forum
+        "forum": forum,
+        "form": form,
+        "comments": comments,
+        "more_forums": more_forums
     })
 
 
