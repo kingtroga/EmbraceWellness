@@ -1,0 +1,24 @@
+{% extends 'core/index.html' %}
+
+{% block title %}Forum post{% endblock %}
+
+{% block content %}
+<div class="pt-[6rem] flex justify-center"> <!--Main div not the contents-->
+    <div class=" w-[22.5rem] sm:w-[60rem] xl:w-4/5  flex-col flex justify-center items-start">
+        <h2 class="sm:text-5xl text-4xl font-bold z-[2]">{{ forum.title }}</h2>
+        <p class="my-2 text-mustard uppercase font-semibold flex flex-row justify-center items-start space-x-2 text-sm ">
+            <span>
+                {{ forum.created_at }}
+            </span>
+            <span>
+                {{ forum.created_by }}
+            </span>
+            <!-- <span> 
+                <i class="fa-solid  fa-message"></i>
+                3
+            </span> -->
+        </p>
+        <p class="text-lg">{{ forum.content }}</p>
+    </div>
+</div>
+{% endblock %}

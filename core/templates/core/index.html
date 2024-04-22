@@ -61,7 +61,7 @@
             {% for forum in forums %}
             <!-- FORUM ELEMENT -->
             <div class="bg-[#343a40] p-4 lg:p-10 w-[21rem] sm:w-[22rem] md:w-[25rem] lg:w-[25rem] m-10 rounded-sm ">
-                <a href="#" class="h-auto flex flex-col space-y-2 justify-content items-start">
+                <a href="{% url 'forum:detail' forum.id %}" class="h-auto flex flex-col space-y-2 justify-content items-start">
                     <p class="text-mustard lg:text-3xl text-2xl font-extrabold">{{ forum.created_at }}</p>
                     <h3 class="text-white lg:text-3xl text-2xl">{{ forum.title }}</h3>
                     <p class="uppercase text-lg text-white">{{ forum.created_by }}</p>

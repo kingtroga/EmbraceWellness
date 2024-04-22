@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from . import models
 from django.core.paginator import Paginator
@@ -41,6 +41,14 @@ def new(request):
         form = ForumForm()
     return render(request, 'forum/forum_new.html',{
         "form": form
+    })
+
+
+def detail(request, pk):
+    forum = get_object_or_404(models.Forum, pk=pk)
+    
+    return render(request, 'forum/detail.html', {
+        "forum": forum
     })
 
 
