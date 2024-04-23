@@ -8,5 +8,8 @@ class Blog(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to="blog_images")
 
+    class Meta:
+        ordering = ('-created_at',)
+
     def __str__(self):
         return self.title

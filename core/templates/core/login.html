@@ -13,7 +13,7 @@
             {% csrf_token %}
 
             <div class="mb-3">
-                <label class="inline-block mb-2 font-semibold text-white">Username</label><br>
+                
                 {{ form.username }}
             </div>
     
@@ -23,10 +23,8 @@
             </div>
     
             {% if form.errors or form.non_field_errors %}
-                <div class="self-center mb-3 p-6 bg-red-100 rounded-xl text-black">
-                    {% for field in form %}
-                        {{ field.errors }}
-                    {% endfor %}
+                <div class="self-center mb-3 px-6 py-4 bg-red-100 rounded-xl w-auto text-black">
+                    <label class="inline-block mb-2 font-semibold">Invalid Credentials</label><br> 
                 </div>
             {% endif %}
 

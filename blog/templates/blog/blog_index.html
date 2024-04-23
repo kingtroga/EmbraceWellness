@@ -33,9 +33,11 @@
                             <span>
                                 {{ blog.created_at }}
                             </span>
-                            <span>
+                            <a href="{% url 'accounts:detail' blog.author.id %}">
+                                <span>
                                 {{ blog.author }}
-                            </span>
+                                </span>
+                            </a>
                             <span>
                                 <i class="fa-solid  fa-message"></i>
                                 {{ blog.author.blogs.count }}

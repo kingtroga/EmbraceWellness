@@ -7,7 +7,9 @@ class Forum(models.Model):
     created_by = models.ForeignKey(User, related_name="forums", on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
     modified_at = models.TimeField(auto_now=True)
-        
+
+    class Meta:
+        ordering = ('-modified_at',)
 
     def __str__(self):
         return self.title

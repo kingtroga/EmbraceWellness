@@ -21,18 +21,18 @@ def index(request):
 
 def signup(request):
     if request.method == "POST":
-        form = SignUpForm(request.POST)
+        signup_form = SignUpForm(request.POST)
 
-        if form.is_valid():
-            form = form.save(commit=True)
+        if signup_form.is_valid():
+            signup_form = signup_form.save(commit=True)
             return redirect('/login/')
         
     else:
-        form = SignUpForm()
+        signup_form = SignUpForm()
 
 
     return render(request, 'core\signup.html', {
-        'form': form
+        'signup_form': signup_form
     })
 
 def logout_view(request):
