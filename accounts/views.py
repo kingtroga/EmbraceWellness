@@ -17,4 +17,7 @@ def detail(request, pk):
         'forums': forums,
         'blogs': blogs
     } )
+
+def edit(request, pk):
+    pass
     
