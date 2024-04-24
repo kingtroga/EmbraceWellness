@@ -14,6 +14,8 @@ def index(request):
     user_is_staff = request.user.is_staff
     professionals = User.objects.filter(is_staff=True).all().exclude(username='admin').count()
 
+    
+
 
     
     if request.method == 'POST':
@@ -28,6 +30,15 @@ def index(request):
     # clean up forum
     for forum in forums:
         forum.content = forum.content[0:500] + "..."
+
+    for blog in blogs:
+        blog.content = blog.content[0:500] + "..."
+
+
+    if not len(forums) == 3:
+        forums = None
+    if not len(blogs) == 3:
+        blogs = None
 
     return render(request, "core/index.html", {
         "forums": forums,
