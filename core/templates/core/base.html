@@ -33,7 +33,7 @@
         
 
         {% if user_is_staff %}
-          <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">direct messages</a></li>
+          <li class="mx-4 xl:my-0 my-4"><a href="{% url 'contact:index' %}" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">direct messages</a></li>
         {% else %}
         <li class="mx-4 xl:my-0 my-4"><a href="/#About" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">about</a></li>
         <li class="mx-4 xl:my-0 my-4"><a href="/#Contact" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">contact</a></li>
