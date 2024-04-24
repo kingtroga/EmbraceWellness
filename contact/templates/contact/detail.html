@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% block title %}Direct Message{% endblock %}
+
+
+{% block content %}
+<div class="pt-[5rem] w-4/5 mx-auto">
+    <h3 class=" font-extrabold text-white lg:text-2xl text-xl w-full my-4 ">Subject: {{ message.subject }}</h3>
+    <p class="text-mustard font-bold flex sm:flex-row  flex-col justify-start  items-start sm:items-center sm:space-x-10 text-sm  my-4">
+        <span>
+            Sent by: {{ message.name }}
+        </span>
+        <span>
+            Email: {{ message.email }}
+        </span>
+        <span>
+            @ {{ message.created_at }}
+        </span>
+    </p>
+    <p class="text-white text-[1rem] text-lg my-4"   >
+        <span class="font-bold">
+            Message: 
+        </span>
+        
+        {{ message.message }}</p>
+</div>
+{% endblock %}
