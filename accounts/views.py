@@ -55,3 +55,10 @@ def edit_profile_text(request, pk):
         'user_form': user_form,
         'user_is_staff': user_is_staff
     } )
+
+def professionals(request):
+    user_is_staff = request.user.is_staff
+    
+    return render(request, 'accounts/professionals.html', {
+        'user_is_staff': user_is_staff,
+    })
