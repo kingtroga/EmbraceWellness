@@ -6,6 +6,7 @@ class Contact(models.Model):
     subject = models.CharField(max_length=300, default="No subject")
     message = models.TextField(null=False, blank=False)
     attended_to = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
