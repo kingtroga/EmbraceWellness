@@ -4,6 +4,7 @@ from django.contrib.auth import logout
 from forum.models import Forum
 from blog.models import Blog
 from contact.forms import ContactForm
+from django.contrib.auth.models import User
 
 
 
@@ -11,6 +12,8 @@ def index(request):
     forums = Forum.objects.all()[0:3]
     blogs = Blog.objects.all()[0:3]
     user_is_staff = request.user.is_staff
+    professionals = User.objects.filter(is_staff=True).all().exclude(username='admin').count()
+
 
     
     if request.method == 'POST':
@@ -31,6 +34,7 @@ def index(request):
         "blogs": blogs,
         "form": form,
         "user_is_staff": user_is_staff,
+        "professionals": professionals
     })
 
 def signup(request):

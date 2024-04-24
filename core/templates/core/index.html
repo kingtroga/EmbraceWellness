@@ -44,8 +44,8 @@
                 <p class="text-lg -mt-[2rem] mb-6 z-[3]">We provide interactive resources, supportive community, counseling services, educational workshops, emergency resources, awareness campaigns, personal journals, and volunteer opportunities to aid students in promoting mental health and addressing gender-based violence.</p>
                 <p class="text-2xl">
                     <span class="text-mustard font-semibold">
-                        5
-                    </span> Professional Counsellors Available
+                        {{ professionals }}
+                    </span> Professional Counsellor(s) Available
                 </p>
                 <a href="{% url 'accounts:professionals' %}">
                     <button class="uppercase font-semibold text-sm px-6 py-4 bg-mustard text-black rounded-3xl">

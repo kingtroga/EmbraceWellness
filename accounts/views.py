@@ -58,7 +58,18 @@ def edit_profile_text(request, pk):
 
 def professionals(request):
     user_is_staff = request.user.is_staff
-    
+    professionals_count = User.objects.filter(is_staff=True).all().exclude(username='admin').count()
+
+    professionals_list = []
+    professionals = User.objects.filter(is_staff=True).all().exclude(username='admin')
+
+    for professional in professionals:
+        professionals_list.append(get_object_or_404(Profile, user=professional))
+
+    print(professionals_list)
+
     return render(request, 'accounts/professionals.html', {
         'user_is_staff': user_is_staff,
+        'professionals_list': professionals_list,
+        'professionals_count': professionals_count
     })
