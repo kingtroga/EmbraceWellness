@@ -8,6 +8,7 @@ from .forms import ForumForm, CommentForm
 def index(request):
     query = request.GET.get('query', '')
     forums = models.Forum.objects.all()
+    user_is_staff = request.user.is_staff
 
     if query:
         forums = forums.filter(Q(title__icontains=query) | Q(content__icontains=query))
@@ -25,11 +26,14 @@ def index(request):
     return render(request, 'forum/forum_index.html',
                   {"forums": forums,
                    'query': query,
-                   "page_obj": page_obj})
+                   "page_obj": page_obj,
+                   'user_is_staff': user_is_staff
+                   })
 
 
 @login_required
 def new(request):
+    user_is_staff = request.user.is_staff
     if request.method == 'POST':
         form = ForumForm(request.POST)
         if form.is_valid():
@@ -40,11 +44,13 @@ def new(request):
     else:
         form = ForumForm()
     return render(request, 'forum/forum_new.html',{
-        "form": form
+        "form": form,
+        "user_is_staff": user_is_staff
     })
 
 
 def detail(request, pk):
+    user_is_staff = request.user.is_staff
     forum = get_object_or_404(models.Forum, pk=pk)
     comments = forum.comments.all()
     form = CommentForm()
@@ -64,7 +70,8 @@ def detail(request, pk):
         "forum": forum,
         "form": form,
         "comments": comments,
-        "more_forums": more_forums
+        "more_forums": more_forums,
+        'user_is_staff': user_is_staff
     })
 
 

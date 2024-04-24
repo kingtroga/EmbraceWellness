@@ -12,15 +12,18 @@ def detail(request, username):
     profile = get_object_or_404(Profile, user=user)
     forums = Forum.objects.filter(created_by=user).all()[0:3]
     blogs = Blog.objects.filter(author=user).all()[0:3]
+    user_is_staff = request.user.is_staff
 
     return render(request, 'accounts/detail.html', {
         'profile': profile,
         'forums': forums,
-        'blogs': blogs
+        'blogs': blogs,
+        'user_is_staff': user_is_staff
     } )
 
 @login_required
 def edit_profile_pic(request, pk):
+    user_is_staff = request.user.is_staff
     profile = get_object_or_404(Profile, pk=pk)
     
     if request.method == "POST":
@@ -32,11 +35,13 @@ def edit_profile_pic(request, pk):
         profile_form = ProfileForm(instance=profile)
 
     return render(request, 'accounts/edit_profile_pic.html', {
-        'profile_form': profile_form
+        'profile_form': profile_form,
+        'user_is_staff': user_is_staff
     })
 
 @login_required  
 def edit_profile_text(request, pk):
+    user_is_staff = request.user.is_staff
     user = get_object_or_404(User, pk=pk)
     if request.method == "POST":
         user_form = UserForm(request.POST, instance=user)
@@ -47,5 +52,6 @@ def edit_profile_text(request, pk):
         user_form = UserForm(instance=user)
 
     return render(request, 'accounts/edit_profile_text.html', {
-        'user_form': user_form
+        'user_form': user_form,
+        'user_is_staff': user_is_staff
     } )

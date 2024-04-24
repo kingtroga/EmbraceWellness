@@ -30,8 +30,15 @@
         </span>
       </div>
       <ul class="xl:flex xl:static z-[1] xl:z-auto absolute w-full xl:w-auto left-0 xl:pl-0 pl-1 xl:py-0 py-1 xl:opacity-100 opacity-0 transition-all top-[-400px] ease-in duration-500  bg-black text-white">
-        <li class="mx-4 xl:my-0 my-4"><a href="/#Contact" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">contact</a></li>
+        
+
+        {% if user_is_staff %}
+          <li class="mx-4 xl:my-0 my-4"><a href="#" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">direct messages</a></li>
+        {% else %}
         <li class="mx-4 xl:my-0 my-4"><a href="/#About" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">about</a></li>
+        <li class="mx-4 xl:my-0 my-4"><a href="/#Contact" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">contact</a></li>
+        {% endif %}
+
         <li class="mx-4 xl:my-0 my-4"><a href="{% url 'blog:index' %}" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">blog</a></li>
         <li class="mx-4 xl:my-0 my-4"><a href="{% url 'forum:index' %}" class="text-lg no-underline hover:underline-offset-8 hover:underline transition-all ease-in duration-500  hover:text-mustard capitalize">forum</a></li>
         {% if user.is_authenticated %}

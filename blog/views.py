@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import BlogForm
 
 def index(request):
+    user_is_staff = request.user.is_staff
     query = request.GET.get('query', '')
     blogs = models.Blog.objects.all()
 
@@ -25,10 +26,12 @@ def index(request):
     return render(request, 'blog/blog_index.html',
                   {"blogs": blogs,
                    'query': query,
-                   "page_obj": page_obj})
+                   "page_obj": page_obj,
+                   'user_is_staff': user_is_staff})
 
 @login_required
 def new(request):
+    user_is_staff = request.user.is_staff
     if request.method == 'POST':
         form = BlogForm(request.POST)
         if form.is_valid():
@@ -39,15 +42,18 @@ def new(request):
     else:
         form = BlogForm()
     return render(request, 'blog/blog_new.html',{
-        "form": form
+        "form": form,
+        'user_is_staff': user_is_staff 
     })
 
 def detail(request, pk):
+    user_is_staff = request.user.is_staff
     blog = get_object_or_404(models.Blog, pk=pk)
     more_blogs = models.Blog.objects.all().exclude(pk=pk)[0:3]
 
     return render(request, 'blog/detail.html', {
         "blog": blog,
-        "more_blogs": more_blogs
+        "more_blogs": more_blogs,
+        'user_is_staff': user_is_staff
     })
 
