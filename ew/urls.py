@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import handler403, handler404, handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,3 +30,7 @@ urlpatterns = [
     path('conversation/', include('conversation.urls')),
     path('direct_messages/', include('contact.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'core.views.page_not_found'
+handler403 = 'core.views.permission_denied'
+handler500 = 'core.views.server_error'

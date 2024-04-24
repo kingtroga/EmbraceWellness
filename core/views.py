@@ -29,7 +29,7 @@ def index(request):
     for forum in forums:
         forum.content = forum.content[0:500] + "..."
 
-    return render(request, "core\index.html", {
+    return render(request, "core/index.html", {
         "forums": forums,
         "blogs": blogs,
         "form": form,
@@ -50,7 +50,7 @@ def signup(request):
         signup_form = SignUpForm()
 
 
-    return render(request, 'core\signup.html', {
+    return render(request, 'core/signup.html', {
         'signup_form': signup_form,
         'user_is_staff': user_is_staff
     })
@@ -59,3 +59,11 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+def permission_denied(request, exception):
+    return render(request, 'core/403.html', status=403)
+
+def page_not_found(request, exception):
+    return render(request, 'core/404.html', status=404)
+
+def server_error(request):
+    return render(request, 'core/500.html', status=500)
