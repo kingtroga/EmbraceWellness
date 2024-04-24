@@ -27,3 +27,12 @@ class ContactForm(forms.ModelForm):
         'placeholder': "Your Message",
         "class": INPUT_CLASSES
     }))
+
+class AttendToForm(forms.ModelForm):
+    class Meta:
+        model = Contact 
+        fields = ['attended_to',]
+
+    attended_to = forms.BooleanField(widget=forms.CheckboxInput(attrs={
+        "class": "w-4 h-4 text-mustard bg-mustard border-mustard rounded focus:ring-mustard dark:focus:ring-mustard dark:ring-offset-mustard focus:ring-2 dark:bg-mustard dark:border-mustard"
+    }))

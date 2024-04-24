@@ -25,3 +25,4 @@ class BlogForm(forms.ModelForm):
     image = forms.CharField(widget=forms.FileInput(attrs={
         'class': INPUT_CLASSES #'text-clip overflow-hidden pt-4 pb-[40rem] px-6  rounded-xl  w-[18rem] hover:border-mustard text-lg sm:w-[20rem] md:w-[80rem] bg-black placeholder:text-white cursor:text-white border border-white'
     }))
+

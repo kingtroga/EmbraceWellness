@@ -21,6 +21,15 @@
             Message: 
         </span>
         
-        {{ message.message }}</p>
+        {{ message.message }}
+    </p>
+    <form action="." method="post">
+        {% csrf_token %}
+        <div class="flex items-center">
+            {{ form.attended_to  }}
+            <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I have attended to this <a href="#" class="text-mustard  hover:underline">message</a>.</label>
+        </div>
+        <button class="text-lg font-semibold mt-[1rem] px-3 py-2 bg-black text-black rounded-xl  bg-mustard   hover:bg-white  hover:text-black uppercase">confirm</button>
+    </form>
 </div>
 {% endblock %}
